@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Copy for GPT",
+      "type": "shell",
+      "command": "copy-gpt --tree",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    }
+  ]
+}

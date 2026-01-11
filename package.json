@@ -1,0 +1,11 @@
+{
+  "name": "copy-for-gpt",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "copy-gpt": "./copyForGPT.js"
+  },
+  "dependencies": {
+    "clipboardy": "^5.0.2"
+  }
+}

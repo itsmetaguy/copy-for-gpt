@@ -1,0 +1,55 @@
+{
+  "name": "copy-for-gpt",
+  "displayName": "copy-for-gpt",
+  "description": "Copy project files and structure for GPT",
+  "version": "0.0.1",
+  "engines": {
+  "vscode": "^1.108.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-for-gpt.quick",
+        "title": "⚡ Copy For GPT (Quick)"
+      },
+      {
+        "command": "copy-for-gpt.custom",
+        "title": "🧠 Copy For GPT (Custom)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-for-gpt.quick",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        },
+        {
+          "command": "copy-for-gpt.custom",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+
+  
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.108.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.39.2",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
