@@ -27,6 +27,74 @@ function ensureGptIgnoreExists(cwd) {
 #
 # Paths are relative to the project root.
 # -----------------------------------------
+
+# -----------------------------
+# Dependencies
+# -----------------------------
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# -----------------------------
+# Build / output
+# -----------------------------
+dist
+build
+.out
+.next
+.cache
+
+# -----------------------------
+# Environment
+# -----------------------------
+.env
+.env.*
+
+# -----------------------------
+# Logs / maps
+# -----------------------------
+*.log
+*.map
+
+# -----------------------------
+# VCS
+# -----------------------------
+.git
+.gitignore
+.gitattributes
+
+# -----------------------------
+# VS Code / tooling
+# -----------------------------
+.vscode
+.vscode/**
+.vscodeignore
+.vscode-test.mjs
+vsc-extension-quickstart.md
+eslint.config.mjs
+jsconfig.json
+
+# -----------------------------
+# Tests (optional, noise for GPT)
+# -----------------------------
+test
+test/**
+
+# -----------------------------
+# Binaries
+# -----------------------------
+*.vsix
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.zip
+*.exe
+*.dll
+*.bin
+*.pdf
 `;
 
   fs.writeFileSync(filePath, content, "utf8");
@@ -56,8 +124,8 @@ function runCopy(command, cwd, label, gptIgnoreCreated) {
     const match = stdout?.match(/(\d+)\s+fichiers copiés/i);
     const count = match ? match[1] : "?";
 
-    let message = `✅ Copied ${count} files for GPT`;
-    if (gptIgnoreCreated) message += " & .gptignore file created";
+    let message = `✅ Copied ${count} files for GPT • Root: ${path.basename(cwd)}`;
+    if (gptIgnoreCreated) message += "\n• .gptignore created, run again to apply";
 
     vscode.window.showInformationMessage(message);
   });

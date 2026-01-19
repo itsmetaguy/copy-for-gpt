@@ -1,0 +1,55 @@
+# .gptignore
+# -----------------------------------------
+# Files and folders listed here will NOT be
+# copied when using Copy For GPT.
+#
+# Similar to .gitignore, one rule per line.
+#
+# Examples:
+# node_modules
+# dist
+# .env
+# *.log
+# *.map
+#
+# Paths are relative to the project root.
+# -----------------------------------------
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Builds
+dist
+build
+.out
+.next
+.cache
+
+# Env
+.env
+.env.*
+
+# Logs & maps
+*.log
+*.map
+
+# VCS
+.git
+
+# Binaries
+*.vsix
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.zip
+*.exe
+*.dll
+*.bin
+*.pdf
+
+# VSC-Quickstart.md
+vsc-extension-quickstart.md
