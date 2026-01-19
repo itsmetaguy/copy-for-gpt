@@ -1,0 +1,68 @@
+{
+  "name": "copy-for-gpt",
+  "displayName": "Copy For GPT",
+  "description": "One-click copy of project structure and files for GPT and other AI tools.",
+  "version": "1.0.2",
+  "publisher": "itsmetaguy",
+  "engines": {
+    "vscode": "^1.108.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "keywords": [
+    "gpt",
+    "ai",
+    "copy",
+    "clipboard",
+    "context"
+  ],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsmetaguy/copy-for-gpt"
+  },
+  "license": "MIT",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-for-gpt.quick",
+        "title": "⚡ Copy For GPT (Quick)"
+      },
+      {
+        "command": "copy-for-gpt.custom",
+        "title": "🧠 Copy For GPT (Custom)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copy-for-gpt.quick",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        },
+        {
+          "command": "copy-for-gpt.custom",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.108.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.39.2",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

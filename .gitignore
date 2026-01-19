@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build / dist
+dist/
+out/
+*.vsix
+
+# Logs
+*.log
+
+# Env
+.env
+
+# VS Code
+.vscode-test/
+g
