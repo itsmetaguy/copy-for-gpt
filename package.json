@@ -2,7 +2,7 @@
   "name": "copy-for-gpt",
   "displayName": "Copy For GPT",
   "description": "One-click copy of project structure and files for GPT and other AI tools.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "itsmetaguy",
   "engines": {
     "vscode": "^1.108.0"
