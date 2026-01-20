@@ -1,4 +1,4 @@
-![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/itsmetaguy.copy-for-gpt)
+![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/itsmetaguy.copy-for-gpt-code)
 
 ![Copy For GPT Banner](./assets/banner.png)
 
