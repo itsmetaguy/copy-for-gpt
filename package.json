@@ -18,7 +18,7 @@
     "clipboard",
     "context"
   ],
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/itsmetaguy/copy-for-gpt"

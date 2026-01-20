@@ -1,5 +1,8 @@
 ![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/itsmetaguy.copy-for-gpt)
 
+![Copy For GPT Banner](./assets/banner.png)
+
+
 # Copy For GPT
 
 > Instantly copy your project tree and files to the clipboard, formatted in a clean, AI-friendly way for GPT and other AI assistants.
