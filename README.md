@@ -2,6 +2,8 @@
 
 ![Copy For GPT Banner](./assets/banner.png)
 
+![Copy For GPT Demo](./assets/demo.gif)
+
 
 # Copy For GPT
 
