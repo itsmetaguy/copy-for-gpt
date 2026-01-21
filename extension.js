@@ -4,22 +4,21 @@ const fs = require("fs");
 const path = require("path"); 
 
 
-function ensureGptIgnoreExists(cwd) {
-  const filePath = path.join(cwd, ".gptignore");
-
-  if (fs.existsSync(filePath)) {
-    return false; // ❌ pas créé
-  }
-
-const content = `# .gptignore
-# -----------------------------------------
+const GPT_IGNORE_CONTENT = `# .gptignore
+# ----------------------------------------------
 # Files and folders listed here will NOT be
 # copied when using Copy For GPT.
 #
 # Similar to .gitignore, one rule per line.
 #
 # Paths are relative to the project root.
-# -----------------------------------------
+# ----------------------------------------------
+# Your own ignored files & folders & extensions
+# ----------------------------------------------
+
+
+
+
 
 # -----------------------------
 # Dependencies
@@ -147,8 +146,16 @@ tests/**
 *.dat
 `;
 
-fs.writeFileSync(filePath, content, "utf8");
-return true; // ✅ créé
+
+function ensureGptIgnore(cwd) {
+  const filePath = path.join(cwd, ".gptignore");
+
+  if (!fs.existsSync(filePath)) {
+    fs.writeFileSync(filePath, GPT_IGNORE_CONTENT, "utf8");
+    return true; // créé
+  }
+
+  return false; // existait déjà
 }
 
 function runCopy(command, cwd, label, gptIgnoreCreated) {
@@ -175,7 +182,7 @@ function runCopy(command, cwd, label, gptIgnoreCreated) {
     const count = match ? match[1] : "?";
 
     let message = `✅ Copied ${count} files for GPT • Root: ${path.basename(cwd)}`;
-    if (gptIgnoreCreated) message += "\n• .gptignore created, run again to apply";
+    if (gptIgnoreCreated) message += "\n• .gptignore created and applied";
 
     vscode.window.showInformationMessage(message);
   });
@@ -192,8 +199,8 @@ async function activate(context) {
 
         const cwd = uri.fsPath;
 
-        const created = ensureGptIgnoreExists(cwd);
-        runCopy("copy-gpt --tree --files", cwd, "quick", created);
+        ensureGptIgnore(cwd);
+        runCopy("copy-gpt --tree --files", cwd, "quick", false);
       }
     )
   );
@@ -257,8 +264,8 @@ async function activate(context) {
           command += ` --tree --files${extArg}${maxSizeArg}`;
         }
 
-        const created = ensureGptIgnoreExists(cwd);
-        runCopy(command, cwd, "custom", created);
+        ensureGptIgnore(cwd);
+        runCopy(command, cwd, "custom", false);
       }
     )
   );
