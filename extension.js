@@ -11,19 +11,12 @@ function ensureGptIgnoreExists(cwd) {
     return false; // ❌ pas créé
   }
 
-  const content = `# .gptignore
+const content = `# .gptignore
 # -----------------------------------------
 # Files and folders listed here will NOT be
 # copied when using Copy For GPT.
 #
 # Similar to .gitignore, one rule per line.
-#
-# Examples:
-# node_modules
-# dist
-# .env
-# *.log
-# *.map
 #
 # Paths are relative to the project root.
 # -----------------------------------------
@@ -44,6 +37,8 @@ build
 .out
 .next
 .cache
+coverage
+.nyc_output
 
 # -----------------------------
 # Environment
@@ -80,25 +75,80 @@ jsconfig.json
 # -----------------------------
 test
 test/**
+tests
+tests/**
 
 # -----------------------------
-# Binaries
+# Images
 # -----------------------------
-*.vsix
 *.png
 *.jpg
 *.jpeg
 *.gif
 *.ico
+*.webp
+*.avif
+*.bmp
+*.tiff
+
+# -----------------------------
+# Audio / Video
+# -----------------------------
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.m4a
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# -----------------------------
+# Fonts
+# -----------------------------
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# -----------------------------
+# Archives
+# -----------------------------
 *.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.tgz
+*.bz2
+
+# -----------------------------
+# Binaries / executables
+# -----------------------------
+*.vsix
 *.exe
 *.dll
+*.so
+*.dylib
+*.app
+*.msi
 *.bin
+
+# -----------------------------
+# Documents / data (binary)
+# -----------------------------
 *.pdf
+*.db
+*.sqlite
+*.sqlite3
+*.dat
 `;
 
-  fs.writeFileSync(filePath, content, "utf8");
-  return true; // ✅ créé
+fs.writeFileSync(filePath, content, "utf8");
+return true; // ✅ créé
 }
 
 function runCopy(command, cwd, label, gptIgnoreCreated) {
