@@ -269,6 +269,40 @@ async function activate(context) {
       }
     )
   );
+
+  // 🎯 SELECTED FILES
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "copy-for-gpt.selection",
+      async (uri, selectedUris) => {
+
+        // VS Code may pass either one uri or an array
+        const uris = selectedUris?.length ? selectedUris : [uri];
+        if (!uris?.length) return;
+
+        const files = uris
+          .filter(u => u?.scheme === "file")
+          .map(u => u.fsPath);
+
+        if (!files.length) {
+          vscode.window.showWarningMessage("No files selected.");
+          return;
+        }
+
+        // Use the folder of the first file as cwd
+        const cwd = path.dirname(files[0]);
+
+        ensureGptIgnore(cwd);
+
+        // Quote paths in case of spaces
+        const quotedFiles = files.map(f => `"${f}"`).join(" ");
+
+        const command = `copy-gpt --files ${quotedFiles}`;
+
+        runCopy(command, cwd, "selection", false);
+      }
+    )
+  );
 }
 
 function deactivate() {}

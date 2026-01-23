@@ -35,6 +35,10 @@
       {
         "command": "copy-for-gpt.custom",
         "title": "🧠 Copy For GPT (Custom)"
+      },
+      {
+        "command": "copy-for-gpt.selection",
+        "title": "🎯 Copy For GPT (Selected Files)"
       }
     ],
     "menus": {
@@ -48,15 +52,22 @@
           "command": "copy-for-gpt.custom",
           "when": "explorerResourceIsFolder",
           "group": "navigation"
+        },
+        {
+          "command": "copy-for-gpt.selection",
+          "when": "resourceScheme == file && !explorerResourceIsFolder",
+          "group": "navigation"
         }
       ]
-    }
-  },
+  }
+},
+
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "vscode-test"
   },
+
   "devDependencies": {
     "@types/vscode": "^1.108.1",
     "@types/mocha": "^10.0.10",
@@ -66,3 +77,4 @@
     "@vscode/test-electron": "^2.5.2"
   }
 }
+

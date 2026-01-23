@@ -26,6 +26,10 @@ Instead of manually selecting files or explaining your project structure, you ca
   - Both / Tree only / Files only
   - Filter by extensions (`js`, `html`, `css`, etc.)
   - Set a maximum file size
+  - 🎯 **Copy selected files**
+  - Right-click one or more files
+  - Copies only those files (folders excluded)
+  - Perfect for sharing focused context with GPT
 - 🚫 **Supports `.gptignore`**
   - Automatically created on first run if missing
   - Similar to `.gitignore`
@@ -49,6 +53,15 @@ Instead of manually selecting files or explaining your project structure, you ca
    - **Quick** → copies tree + all files instantly
    - **Custom** → choose what to copy and apply filters  
 4. Paste directly into GPT or any AI assistant
+
+### Copy selected files
+
+1. Select one or more files in the VS Code Explorer  
+2. Right-click the selection  
+3. Choose **Copy For GPT (Selected Files)**  
+4. Paste directly into GPT or any AI assistant  
+
+> Note: This option only appears when **files only** are selected (no folders).
 
 ---
 
@@ -110,6 +123,7 @@ dist
 AI assistants work best with **full and accurate project context**.
 
 This extension helps you:
+- Share **entire projects or just the exact files you need**
 - Avoid missing files
 - Avoid copy/paste errors
 - Share consistent project structure
