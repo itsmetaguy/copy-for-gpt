@@ -26,7 +26,7 @@ Instead of manually selecting files or explaining your project structure, you ca
   - Both / Tree only / Files only
   - Filter by extensions (`js`, `html`, `css`, etc.)
   - Set a maximum file size
-  - 🎯 **Copy selected files**
+- 🎯 **Copy selected files**
   - Right-click one or more files
   - Copies only those files (folders excluded)
   - Perfect for sharing focused context with GPT
